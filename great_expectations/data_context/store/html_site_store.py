@@ -232,7 +232,7 @@ class HtmlSiteStore:
         return self.store_backends[type(key.resource_identifier)].set(
             key.resource_identifier.to_tuple(),
             serialized_value,
-            content_encoding="utf-8",
+            # content_encoding="utf-8",
             content_type="text/html; charset=utf-8",
         )
 
@@ -336,7 +336,7 @@ class HtmlSiteStore:
         return self.store_backends["index_page"].set(
             (),
             page,
-            content_encoding="utf-8",
+            # content_encoding="utf-8",
             content_type="text/html; " "charset=utf-8",
         )
 
