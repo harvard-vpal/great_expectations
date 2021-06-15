@@ -1025,7 +1025,6 @@ class TupleAzureBlobStoreBackend(TupleStoreBackend):
                 self._get_container_client().upload_blob(
                     name=az_blob_key,
                     data=value,
-                    encoding=content_encoding,
                     overwrite=True,
                     content_settings=my_content_settings,
                 )
@@ -1033,7 +1032,6 @@ class TupleAzureBlobStoreBackend(TupleStoreBackend):
                 self._get_container_client().upload_blob(
                     name=az_blob_key,
                     data=value,
-                    encoding=content_encoding,
                     overwrite=True,
                 )
         else:
