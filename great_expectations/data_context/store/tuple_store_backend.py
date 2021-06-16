@@ -1018,7 +1018,7 @@ class TupleAzureBlobStoreBackend(TupleStoreBackend):
         from azure.storage.blob import ContentSettings
 
         az_blob_key = os.path.join(self.prefix, self._convert_key_to_filepath(key))
-
+        # HELLO
         if isinstance(value, str):
             if az_blob_key.endswith(".html"):
                 my_content_settings = ContentSettings(content_type="text/html")
