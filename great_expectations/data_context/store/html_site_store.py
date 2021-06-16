@@ -233,8 +233,7 @@ class HtmlSiteStore:
         return self.store_backends[type(key.resource_identifier)].set(
             key.resource_identifier.to_tuple(),
             serialized_value,
-            # content_encoding="utf-8",
-            content_type="text/html; charset=utf-8",
+            content_type="text/html; charset=utf-8s",
         )
 
     def get_url_for_resource(self, resource_identifier=None, only_if_exists=True):
@@ -339,8 +338,7 @@ class HtmlSiteStore:
         return self.store_backends["index_page"].set(
             (),
             page,
-            # content_encoding="utf-8",
-            content_type="text/html; " "charset=utf-8",
+            content_type="text/html; " "charset=utf-8s",
         )
 
     def clean_site(self):
