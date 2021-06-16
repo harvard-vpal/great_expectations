@@ -554,12 +554,14 @@ class TupleS3StoreBackend(TupleStoreBackend):
         try:
             result_s3 = s3.Object(self.bucket, s3_object_key)
             if isinstance(value, str):
+                print("INSTANCE")
                 result_s3.put(
                     Body=value.encode(content_encoding),
                     ContentEncoding=content_encoding,
                     ContentType=content_type,
                 )
             else:
+                print("NOT INSTANCE")
                 result_s3.put(Body=value, ContentType=content_type)
         except s3.meta.client.exceptions.ClientError as e:
             logger.debug(str(e))
