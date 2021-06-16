@@ -548,6 +548,8 @@ class TupleS3StoreBackend(TupleStoreBackend):
         s3_object_key = self._build_s3_object_key(key)
 
         s3 = self._create_resource()
+        print("IN SET")
+        print(content_type)
 
         try:
             result_s3 = s3.Object(self.bucket, s3_object_key)
