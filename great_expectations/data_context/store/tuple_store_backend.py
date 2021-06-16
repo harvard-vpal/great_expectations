@@ -554,7 +554,7 @@ class TupleS3StoreBackend(TupleStoreBackend):
             if isinstance(value, str):
                 result_s3.put(
                     Body=value.encode(content_encoding),
-                    # ContentEncoding=content_encoding,
+                    ContentEncoding=content_encoding,
                     ContentType=content_type,
                 )
             else:
