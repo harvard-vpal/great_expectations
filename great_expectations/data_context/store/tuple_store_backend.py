@@ -546,6 +546,8 @@ class TupleS3StoreBackend(TupleStoreBackend):
         self, key, value, content_encoding="utf-8", content_type="application/json"
     ):
         s3_object_key = self._build_s3_object_key(key)
+        print(s3_object_key)
+        print(content_encoding)
 
         s3 = self._create_resource()
 

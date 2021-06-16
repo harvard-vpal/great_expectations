@@ -229,11 +229,11 @@ class HtmlSiteStore:
         self._validate_key(key)
         self.keys.add(key)
         print("HELLO SET")
-        print(key)
+        # print(key)
         return self.store_backends[type(key.resource_identifier)].set(
             key.resource_identifier.to_tuple(),
             serialized_value,
-            content_encoding="utf-16",
+            content_encoding="utf-8",
             content_type="text/html; charset=utf-8",
         )
 
@@ -335,7 +335,7 @@ class HtmlSiteStore:
     def write_index_page(self, page):
         """This third param_store has a special method, which uses a zero-length tuple as a key."""
         print("HELLO")
-        print(page)
+        # print(page)
         return self.store_backends["index_page"].set(
             (),
             page,
