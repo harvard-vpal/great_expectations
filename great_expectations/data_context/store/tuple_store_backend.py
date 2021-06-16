@@ -543,11 +543,9 @@ class TupleS3StoreBackend(TupleStoreBackend):
         )
 
     def _set(
-        self, key, value, content_encoding="utf-8", content_type="application/json"
+        self, key, value, content_type="application/json"
     ):
         s3_object_key = self._build_s3_object_key(key)
-        print(s3_object_key)
-        print(content_encoding)
 
         s3 = self._create_resource()
 
@@ -555,8 +553,9 @@ class TupleS3StoreBackend(TupleStoreBackend):
             result_s3 = s3.Object(self.bucket, s3_object_key)
             if isinstance(value, str):
                 result_s3.put(
-                    Body=value.encode(content_encoding),
-                    ContentType=content_type
+                    # Body=value.encode(content_encoding),
+                    # ContentEncoding=content_encoding,
+                    ContentType=content_type,
                 )
             else:
                 result_s3.put(Body=value, ContentType=content_type)
