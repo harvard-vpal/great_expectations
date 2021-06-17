@@ -549,21 +549,18 @@ class TupleS3StoreBackend(TupleStoreBackend):
 
         s3 = self._create_resource()
         print("IN SET")
-        print(content_type)
         print(content_encoding)
 
         try:
             result_s3 = s3.Object(self.bucket, s3_object_key)
             if isinstance(value, str):
                 print("INSTANCE")
-                print(content_encoding)
                 result_s3.put(
                     Body=value.encode(content_encoding),
-                    ContentEncoding=content_encoding,
+                    ContentEncoding="",
                     ContentType=content_type,
                 )
             else:
-                print("NOT INSTANCE")
                 result_s3.put(Body=value, ContentType=content_type)
         except s3.meta.client.exceptions.ClientError as e:
             logger.debug(str(e))
