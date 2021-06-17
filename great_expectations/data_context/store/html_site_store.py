@@ -334,12 +334,10 @@ class HtmlSiteStore:
 
     def write_index_page(self, page):
         """This third param_store has a special method, which uses a zero-length tuple as a key."""
-        print("HELLO")
-        # print(page)
         return self.store_backends["index_page"].set(
             (),
             page,
-            content_encoding="utf-16",
+            content_encoding="utf-8",
             content_type="text/html; " "charset=utf-8",
         )
 
