@@ -379,9 +379,6 @@ class HtmlSiteStore:
                     store_key = tuple(os.path.normpath(source_name).split(os.sep))
                     store_key = store_key[store_key.index("static") :]
                     content_type, content_encoding = guess_type(item, strict=False)
-                    print("GUESSING")
-                    print(content_type)
-                    print(content_encoding)
 
                     if content_type is None:
                         # Use GE-known content-type if possible
